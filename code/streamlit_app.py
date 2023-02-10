@@ -10,7 +10,7 @@ import pandas as pd
 
 st.set_page_config(
     page_title="MAKE Lab Handwriting Performance APP",
-    page_icon=Image.open('logo.png'),
+    # page_icon=Image.open('logo.png'),
     layout="centered",
     initial_sidebar_state="expanded",
     menu_items={
@@ -23,11 +23,17 @@ st.title('MAKE Lab Handwriting Performance APP')
 
 
 st.markdown("## Introduction")
-st.markdown('Our Task is try to upgrade sentence. Base on CEFR, we can choose which type you want to upgrade.')
-st.markdown('For Example,  input sentence: **An big accident.**')
-st.markdown('Then, we try to upgrade adjective. (i.e. In this sentence, we\' re going to upgrade  "big\") ')
-st.markdown("Output: **An serious accident**")
-st.markdown("Output: **An serious accident**")
+# txt = st.text_area('Text to analyze', '''
+#     It was the best of times, it was the worst of times, it was
+#     the age of wisdom, it was the age of foolishness, it was
+#     the epoch of belief, it was the epoch of incredulity, it
+#     was the season of Light, it was the season of Darkness, it
+#     was the spring of hope, it was the winter of despair, (...)
+#     ''')
+st.markdown('我們正在進行「**以口語表達與手寫表現探討自閉症兒童對於行為特徵與學習輔助**」之計畫。')
+st.markdown('我們發現自閉症兒童和一般兒童在手寫表現上，有明顯的落差。（附圖一）')
+st.markdown('因此，我們希望透過 AI 來分析兩者的筆跡，找出自閉症兒童特有的手寫特徵。')
+st.markdown("最後，我們將透過訓練好的 AI，來開發出一款**藉由筆跡來分析手寫能力**的APP")
 st.markdown("---")
 
 st.markdown("## How to Use?")
@@ -43,19 +49,20 @@ with st.form(key='User information'):
     user_occupation = st.text_input(label='您的職業')
     user_handed = st.selectbox("寫字慣用手", ['右手', '左手'])
     user_independent = st.selectbox("生字本/作業本 是否獨立完成(例:家長扶著手幫忙寫)", ['是', '否'])
-    user_ASD = st.selectbox("實驗者是否患有自閉症?", ['是', '無'])
-    user_ASD_
+    user_ASD = st.selectbox("實驗者是否患有自閉症?", ['是，輕度', '是，中度', '是，重度', '無'])
 
     submit_button = st.form_submit_button(label='填寫完成')
 
 if submit_button:
     st.write('user name:', user_name)
+    st.write('user email:', user_name)
 # st.write('Upgrade type:', select)
-    
-with st.spinner(text='In progress'):
-    for i in range(100):
-        # Process language model
-        time.sleep(0.1)
+    with st.spinner(text='正在分析您的筆跡'):
+        for i in range(100):
+            # Process language model
+            time.sleep(0.1)
     st.success('Done')
+    
+
 
 # output result
